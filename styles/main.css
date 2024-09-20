@@ -4,11 +4,87 @@ body, h1 {
 }
 
 main {
-    background-color: var(--primary-color);
+    --bg-percent: 67%;
+
+    background: linear-gradient(
+        171.2deg,
+        var(--primary-color) var(--bg-percent),
+        white calc(var(--bg-percent) + 0.1%)
+    );
     width: 100vw;
     height: 100vh;
 }
 
-h1 {
-    color: var(--secondary-color)
+@font-face {
+    font-family: coolvetica;
+    src: url('/fonts/coolvetica\ rg.otf');
+}
+
+.name-and-photo {
+    height: 100vh;
+
+    position: relative;
+
+    button {
+        all: unset;
+        cursor: pointer;
+
+        position: absolute;
+        top: 2em;
+        left: 2em;
+
+        & img {
+            width: 3em;
+        }
+    }
+
+    & h1 {
+        position: absolute;
+        top: 50%;
+        left: 15vw;
+
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+        font-family: 'coolvetica';
+        font-size: 8em;
+        width: max-content;
+    
+        transform-style: preserve-3d;
+        transform: perspective(1000px) rotateY(45deg) rotate(-3.2deg) translateX(70px);
+    }
+
+    & #avatar {
+        height: 100vh;
+        aspect-ratio: 1/1.03;
+        object-fit: cover;
+        object-position: bottom;
+
+        filter: hue-rotate(30deg) saturate(500%);
+    }
+
+    & #right-rectangle {
+        width: 40vw;
+        height: 300px;
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+
+        position: absolute;
+        top: 50px;
+        right: 100px;
+
+        & p {
+            margin: 1em;
+
+            font-size: larger;
+        }
+
+        & .socials {
+            margin-left: 1em;
+
+            & .logo img {
+                width: 3em;
+                object-fit: contain;
+            }
+        }
+    }
 }
